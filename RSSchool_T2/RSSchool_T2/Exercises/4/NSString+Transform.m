@@ -9,13 +9,11 @@
     NSCharacterSet *characterSetForSearch = [self isStringPangram:self] ? vowels : consonants;
     
     NSMutableArray *separatedString = [NSMutableArray arrayWithArray:[self componentsSeparatedByString:@" "]];
-    
     NSMutableArray *resultArrayOfWords = [NSMutableArray array];
     
     for (NSString *currentWord in separatedString) {
         
         if (![currentWord isEqualToString:@""]) {
-            
             
             NSMutableString *tempWord = [NSMutableString stringWithString:currentWord];
             int characterCounter = 0;
@@ -33,10 +31,7 @@
                 }
             }
             [resultArrayOfWords addObject:[NSString stringWithFormat:@"%d%@", characterCounter, tempWord]];
-            
         }
-        
-        
     }
     
     [resultArrayOfWords sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
@@ -55,12 +50,9 @@
         } else {
             return NSOrderedDescending;
         }
-        
     }];
     
     NSString *result = [resultArrayOfWords componentsJoinedByString:@" "];
-    
-    NSLog(@"%@", result);
     
     return result;
 }
